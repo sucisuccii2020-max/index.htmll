@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+  <title>Edukasi Anti Riba | Ekonomi Syariah</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700;800&family=Reem+Kufi:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --emerald: #059669;
+      --teal: #0d9488;
+      --mint: #d1fae5;
+      --sky: #e0f2fe;
+      --gold: #c89116;
+      --soft-gold: #fef3c7;
+      --white: #ffffff;
+      --deep-teal: #0a4b40;
+      --coral: #f97316;
+      --shadow-sm: 0 4px 16px rgba(0, 70, 60, 0.08);
+      --shadow-md: 0 20px 35px rgba(5, 90, 70, 0.12);
+      --shadow-lg: 0 30px 50px rgba(8, 100, 70, 0.18);
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(160deg, #ecfdf5 0%, #f0f9ff 40%, #fef9ef 100%);
+      background-attachment: fixed;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      margin: 0;
+    }
+
+    .app-wrapper {
+      max-width: 850px;
+      width: 100%;
+      background: #ffffff;
+      border-radius: 44px;
+      box-shadow: var(--shadow-lg), 0 0 0 1px rgba(255, 255, 255, 0.7);
+      padding: 20px 24px 30px;
+      border: 1px solid rgba(16, 185, 129, 0.15);
+      position: relative;
+      overflow: hidden;
+      min-height: 500px;
+    }
+
+    .app-wrapper::after {
+      content: "";
+      position: absolute;
+      top: -70px;
+      right: -70px;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, rgba(5, 150, 105, 0.07) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    /* ========== SPLASH SCREEN ========== */
+    .splash-screen {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 30px 20px 24px;
+      background: linear-gradient(180deg, #f5fdf9 0%, #ffffff 80%);
+      border-radius: 38px;
+      position: relative;
+      z-index: 2;
+      animation: splashFade 0.8s ease;
+    }
+
+    @keyframes splashFade {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .splash-icon-set {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .splash-icon-circle {
+      background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.4rem;
+      color: #065f46;
+      box-shadow: 0 14px 22px rgba(4, 120, 87, 0.2);
+      transition: transform 0.3s;
+    }
+
+    .splash-icon-circle:hover {
+      transform: scale(1.1);
+    }
+
+    .splash-icon-circle.gold {
+      background: linear-gradient(135deg, #fef3c7, #fde68a);
+      color: #92400e;
+    }
+
+    .splash-icon-circle.blue {
+      background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+      color: #1e40af;
+    }
+
+    .splash-title {
+      font-family: 'Reem Kufi', 'Amiri', sans-serif;
+      font-size: 2.6rem;
+      font-weight: 700;
+      color: #064e3b;
+      letter-spacing: -0.3px;
+      margin-bottom: 6px;
+    }
+
+    .splash-subtitle {
+      font-weight: 600;
+      color: #1e6b5e;
+      background: #e6f7f0;
+      padding: 10px 26px;
+      border-radius: 40px;
+      margin: 14px 0 20px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.05rem;
+      border: 1px solid #b7e4d4;
+    }
+
+    .splash-desc {
+      color: #2d6a4f;
+      max-width: 380px;
+      margin-bottom: 14px;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .btn-mulai {
+      background: linear-gradient(115deg, #059669, #0d9488);
+      border: none;
+      color: white;
+      font-weight: 700;
+      font-size: 1.2rem;
+      padding: 15px 44px;
+      border-radius: 50px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 14px 26px rgba(5, 150, 105, 0.4);
+      transition: all 0.2s;
+      margin-top: 8px;
+      letter-spacing: 0.4px;
+      position: relative;
+      z-index: 10;
+      pointer-events: auto;
+    }
+
+    .btn-mulai:hover {
+      background: linear-gradient(115deg, #047857, #0f766e);
+      transform: scale(1.03);
+      box-shadow: 0 20px 30px rgba(4, 120, 87, 0.5);
+    }
+
+    .btn-mulai:active {
+      transform: scale(0.97);
+    }
+
+    /* Halaman Utama */
+    .home-page {
+      display: none;
+      animation: fadeIn 0.5s ease;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(15px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-banner {
+      background: linear-gradient(125deg, #ccfbf1 0%, #dbeafe 50%, #fef9c3 100%);
+      border-radius: 36px;
+      padding: 20px 14px 16px;
+      margin-bottom: 28px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      box-shadow: inset 0 2px 12px rgba(255, 255, 255, 0.9), 0 4px 16px rgba(0, 70, 60, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-banner::before {
+      content: "";
+      position: absolute;
+      top: -50px;
+      left: -50px;
+      width: 120px;
+      height: 120px;
+      background: rgba(255, 255, 255, 0.5);
+      border-radius: 50%;
+    }
+
+    .hero-banner::after {
+      content: "";
+      position: absolute;
+      bottom: -30px;
+      right: -30px;
+      width: 100px;
+      height: 100px;
+      background: rgba(255, 255, 200, 0.4);
+      border-radius: 50%;
+    }
+
+    .hero-banner .icon-group {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 8px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-banner .icon-group i {
+      font-size: 2.6rem;
+      color: #0b6e56;
+      background: #ffffffdd;
+      padding: 10px 14px;
+      border-radius: 50px;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 8px 16px rgba(0, 80, 60, 0.12);
+    }
+
+    .hero-banner h2 {
+      font-family: 'Reem Kufi', sans-serif;
+      font-size: 2.2rem;
+      color: #064e3b;
+      font-weight: 700;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-banner .tagline {
+      background: #ffffffcc;
+      padding: 7px 26px;
+      border-radius: 30px;
+      font-weight: 600;
+      color: #115e59;
+      margin-top: 6px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.95rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .menu-card {
+      background: white;
+      border-radius: 28px;
+      padding: 20px 12px 18px;
+      text-align: center;
+      box-shadow: 0 4px 16px rgba(0, 70, 60, 0.08);
+      cursor: pointer;
+      transition: 0.25s;
+      border: 1px solid #dcfce7;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(0deg, #f9fefc, #ffffff);
+      pointer-events: auto;
+      position: relative;
+      z-index: 5;
+    }
+
+    .menu-card i {
+      font-size: 2.3rem;
+      color: #0d9488;
+      background: #d1fae5;
+      padding: 15px;
+      border-radius: 50%;
+      box-shadow: 0 8px 14px rgba(13, 148, 136, 0.15);
+      transition: 0.3s;
+    }
+
+    .menu-card span {
+      font-weight: 600;
+      color: #115e59;
+      font-size: 0.95rem;
+      line-height: 1.3;
+    }
+
+    .menu-card:hover {
+      background: #ffffff;
+      box-shadow: 0 22px 32px rgba(13, 148, 136, 0.22);
+      border-color: #a7f3d0;
+      transform: translateY(-3px);
+    }
+
+    .menu-card:hover i {
+      transform: rotate(10deg);
+      background: #a7f3d0;
+    }
+
+    .menu-card:active {
+      transform: scale(0.96);
+    }
+
+    /* Tombol kembali ke splash di home page */
+    .back-to-splash-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 24px;
+      padding: 12px 24px;
+      background: #fef3c7;
+      border: 2px solid #fcd34d;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: 600;
+      color: #92400e;
+      transition: 0.2s;
+      font-size: 0.95rem;
+    }
+
+    .back-to-splash-btn:hover {
+      background: #fde68a;
+      box-shadow: 0 8px 20px rgba(245, 158, 11, 0.2);
+    }
+
+    /* Halaman materi */
+    .material-page {
+      display: none;
+      background: #ffffff;
+      border-radius: 34px;
+      padding: 18px 22px 28px;
+      box-shadow: 0 20px 35px rgba(5, 90, 70, 0.12);
+      animation: fadeIn 0.35s ease;
+    }
+
+    .nav-buttons {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .back-btn {
+      background: #ecfdf5;
+      border: none;
+      font-weight: 600;
+      color: #047857;
+      padding: 10px 22px;
+      border-radius: 30px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.95rem;
+      transition: 0.2s;
+      pointer-events: auto;
+      position: relative;
+      z-index: 10;
+    }
+
+    .back-btn:hover {
+      background: #d1fae5;
+    }
+
+    .back-splash-btn {
+      background: #fef3c7;
+      border: 2px solid #fcd34d;
+      font-weight: 600;
+      color: #92400e;
+      padding: 10px 22px;
+      border-radius: 30px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.95rem;
+      transition: 0.2s;
+      pointer-events: auto;
+    }
+
+    .back-splash-btn:hover {
+      background: #fde68a;
+      box-shadow: 0 8px 20px rgba(245, 158, 11, 0.2);
+    }
+
+    /* Ilustrasi header untuk materi */
+    .material-illustration {
+      width: 100%;
+      height: 200px;
+      border-radius: 24px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 12px 28px rgba(0, 70, 60, 0.12);
+    }
+
+    .material-illustration.pengertian-bg {
+      background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 30%, #6ee7b7 60%, #34d399 100%);
+    }
+
+    .material-illustration.jenis-bg {
+      background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 30%, #93c5fd 60%, #60a5fa 100%);
+    }
+
+    .material-illustration.bahaya-bg {
+      background: linear-gradient(135deg, #fef3c7 0%, #fde68a 30%, #fcd34d 60%, #fbbf24 100%);
+    }
+
+    .material-illustration.hindari-bg {
+      background: linear-gradient(135deg, #fce7f3 0%, #fbcfe8 30%, #f9a8d4 60%, #f472b6 100%);
+    }
+
+    .illustration-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
+    }
+
+    .illustration-circle {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(10px);
+    }
+
+    .illustration-badge {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: #065f46;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(10px);
+    }
+
+    .material-title {
+      font-family: 'Reem Kufi', sans-serif;
+      font-size: 2.1rem;
+      color: #065f46;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+      border-bottom: 2px dashed #b7dfd4;
+      padding-bottom: 14px;
+    }
+
+    .material-body {
+      color: #1e3b4a;
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+
+    .material-body p {
+      margin-bottom: 16px;
+    }
+
+    .material-body ul,
+    .material-body ol {
+      padding-left: 24px;
+      margin: 14px 0 20px;
+    }
+
+    .material-body li {
+      margin-bottom: 10px;
+    }
+
+    .highlight-box {
+      background: #f0fdf4;
+      padding: 16px 20px;
+      border-left: 6px solid #10b981;
+      border-radius: 16px;
+      margin: 20px 0;
+    }
+
+    .quran-box {
+      background: #fef9e7;
+      padding: 16px 20px;
+      border-radius: 18px;
+      margin: 18px 0;
+      text-align: right;
+      direction: rtl;
+      font-family: 'Amiri', serif;
+      font-size: 1.5rem;
+      color: #0a4b40;
+      border: 1px solid #fde68a;
+    }
+
+    .quran-box small {
+      font-family: 'Inter', sans-serif;
+      direction: ltr;
+      display: block;
+      text-align: left;
+      font-size: 0.9rem;
+      color: #374151;
+    }
+
+    .warning-box {
+      background: #fff7ed;
+      padding: 16px 20px;
+      border-left: 6px solid #f97316;
+      border-radius: 16px;
+      margin: 20px 0;
+    }
+
+    .motivation-box {
+      background: linear-gradient(135deg, #d1fae5, #e0f2fe);
+      padding: 18px 20px;
+      border-radius: 20px;
+      margin: 22px 0;
+      text-align: center;
+      font-weight: 600;
+      color: #065f46;
+      border: 1px solid #a7f3d0;
+    }
+
+    .svg-illustration {
+      width: 100%;
+      max-width: 400px;
+      margin: 20px auto;
+      display: block;
+    }
+
+    @media (max-width: 500px) {
+      .menu-grid {
+        grid-template-columns: 1fr;
+      }
+      .app-wrapper {
+        padding: 16px 14px 22px;
+      }
+      .hero-banner h2 {
+        font-size: 1.8rem;
+      }
+      .material-title {
+        font-size: 1.7rem;
+      }
+      .material-illustration {
+        height: 150px;
+      }
+      .illustration-circle {
+        width: 60px;
+        height: 60px;
+        font-size: 2rem;
+      }
+      .nav-buttons {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-wrapper" id="appWrapper">
+    <!-- Splash Screen -->
+    <div id="splashScreen" class="splash-screen">
+      <div class="splash-icon-set">
+        <div class="splash-icon-circle"><i class="fas fa-mosque"></i></div>
+        <div class="splash-icon-circle gold"><i class="fas fa-hand-holding-heart"></i></div>
+        <div class="splash-icon-circle blue"><i class="fas fa-scale-balanced"></i></div>
+      </div>
+      <div class="splash-title">Assalamu'alaikum 🌿</div>
+      <div class="splash-subtitle">
+        <i class="fas fa-star-and-crescent"></i> Selamat Datang di Edukasi Anti Riba
+      </div>
+      <p class="splash-desc">Platform edukasi ekonomi syariah untuk memahami bahaya riba dan membangun kehidupan finansial yang halal, berkah, dan diridhai Allah SWT.</p>
+      <button class="btn-mulai" onclick="masukAplikasi()">
+        <i class="fas fa-arrow-right-to-bracket"></i> Mulai Belajar
+      </button>
+    </div>
+
+    <!-- Halaman Utama -->
+    <div id="homePage" class="home-page">
+      <div class="hero-banner">
+        <div class="icon-group">
+          <i class="fas fa-gem"></i>
+          <i class="fas fa-leaf"></i>
+        </div>
+        <h2>Edukasi Anti Riba</h2>
+        <div class="tagline"><i class="fas fa-hand-holding-usd"></i> Ekonomi Syariah Penuh Berkah</div>
+      </div>
+      <div class="menu-grid">
+        <div class="menu-card" onclick="bukaMateri('pengertian')"><i class="fas fa-book-open"></i><span>Pengertian Riba</span></div>
+        <div class="menu-card" onclick="bukaMateri('jenis')"><i class="fas fa-layer-group"></i><span>Jenis-Jenis Riba</span></div>
+        <div class="menu-card" onclick="bukaMateri('bahaya')"><i class="fas fa-skull-crosswalk"></i><span>Bahaya & Dampak</span></div>
+        <div class="menu-card" onclick="bukaMateri('hindari')"><i class="fas fa-shield-virus"></i><span>Cara Menghindari</span></div>
+      </div>
+      <!-- Tombol kembali ke halaman Assalamu'alaikum -->
+      <div class="back-to-splash-btn" onclick="kembaliKeSplash()">
+        <i class="fas fa-home"></i> Kembali ke Halaman Awal
+      </div>
+    </div>
+
+    <!-- Halaman Materi -->
+    <div id="materialPage" class="material-page">
+      <div class="nav-buttons">
+        <button class="back-btn" onclick="kembaliKeHome()"><i class="fas fa-arrow-left"></i> Kembali ke Menu</button>
+        <button class="back-splash-btn" onclick="kembaliKeSplash()"><i class="fas fa-home"></i> Ke Halaman Awal</button>
+      </div>
+      <div id="materialContent"></div>
+    </div>
+  </div>
+
+  <script>
+    // SVG Ilustrasi untuk setiap materi
+    const svgIlustrasi = {
+      pengertian: `
+        <div class="material-illustration pengertian-bg">
+          <div class="illustration-content">
+            <div class="illustration-circle">📖</div>
+            <div class="illustration-circle" style="background: rgba(255,255,255,0.7);">🕌</div>
+            <div class="illustration-badge">Pengertian Riba</div>
+          </div>
+        </div>
+        <svg class="svg-illustration" viewBox="0 0 400 120" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" style="stop-color:#d1fae5;stop-opacity:1" />
+              <stop offset="100%" style="stop-color:#a7f3d0;stop-opacity:1" />
+            </linearGradient>
+          </defs>
+          <rect x="20" y="30" width="60" height="60" rx="15" fill="url(#grad1)" stroke="#059669" stroke-width="2"/>
+          <text x="50" y="70" text-anchor="middle" font-size="30">📚</text>
+          <rect x="100" y="45" width="80" height="30" rx="15" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+          <text x="140" y="65" text-anchor="middle" font-size="12" fill="#92400e" font-weight="600">Al-Qur'an</text>
+          <rect x="200" y="45" width="80" height="30" rx="15" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+          <text x="240" y="65" text-anchor="middle" font-size="12" fill="#1e40af" font-weight="600">Hadis</text>
+          <rect x="300" y="45" width="80" height="30" rx="15" fill="#fce7f3" stroke="#ec4899" stroke-width="2"/>
+          <text x="340" y="65" text-anchor="middle" font-size="12" fill="#9d174d" font-weight="600">Ijma'</text>
+          <text x="200" y="105" text-anchor="middle" font-size="14" fill="#065f46" font-weight="700">Sumber Hukum Islam</text>
+        </svg>
+      `,
+      jenis: `
+        <div class="material-illustration jenis-bg">
+          <div class="illustration-content">
+            <div class="illustration-circle">📋</div>
+            <div class="illustration-circle" style="background: rgba(255,255,255,0.7);">🔍</div>
+            <div class="illustration-badge">Jenis-Jenis Riba</div>
+          </div>
+        </div>
+        <svg class="svg-illustration" viewBox="0 0 400 140" xmlns="http://www.w3.org/2000/svg">
+          <rect x="10" y="10" width="180" height="50" rx="12" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+          <text x="100" y="40" text-anchor="middle" font-size="14" fill="#92400e" font-weight="700">Riba Fadhl</text>
+          <rect x="210" y="10" width="180" height="50" rx="12" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+          <text x="300" y="40" text-anchor="middle" font-size="14" fill="#1e40af" font-weight="700">Riba Nasi'ah</text>
+          <rect x="10" y="75" width="180" height="50" rx="12" fill="#d1fae5" stroke="#059669" stroke-width="2"/>
+          <text x="100" y="105" text-anchor="middle" font-size="14" fill="#065f46" font-weight="700">Riba Qardh</text>
+          <rect x="210" y="75" width="180" height="50" rx="12" fill="#fce7f3" stroke="#ec4899" stroke-width="2"/>
+          <text x="300" y="105" text-anchor="middle" font-size="14" fill="#9d174d" font-weight="700">Riba Yad</text>
+        </svg>
+      `,
+      bahaya: `
+        <div class="material-illustration bahaya-bg">
+          <div class="illustration-content">
+            <div class="illustration-circle">⚠️</div>
+            <div class="illustration-circle" style="background: rgba(255,255,255,0.7);">💔</div>
+            <div class="illustration-badge">Bahaya Riba</div>
+          </div>
+        </div>
+        <svg class="svg-illustration" viewBox="0 0 400 130" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="70" cy="65" r="35" fill="#fee2e2" stroke="#ef4444" stroke-width="2"/>
+          <text x="70" y="75" text-anchor="middle" font-size="28">👤</text>
+          <text x="70" y="115" text-anchor="middle" font-size="12" fill="#991b1b" font-weight="600">Individu</text>
+          <circle cx="200" cy="65" r="35" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+          <text x="200" y="75" text-anchor="middle" font-size="28">👨‍👩‍👧‍👦</text>
+          <text x="200" y="115" text-anchor="middle" font-size="12" fill="#92400e" font-weight="600">Keluarga</text>
+          <circle cx="330" cy="65" r="35" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+          <text x="330" y="75" text-anchor="middle" font-size="28">🏙️</text>
+          <text x="330" y="115" text-anchor="middle" font-size="12" fill="#1e40af" font-weight="600">Masyarakat</text>
+        </svg>
+      `,
+      hindari: `
+        <div class="material-illustration hindari-bg">
+          <div class="illustration-content">
+            <div class="illustration-circle">🛡️</div>
+            <div class="illustration-circle" style="background: rgba(255,255,255,0.7);">💡</div>
+            <div class="illustration-badge">Solusi Syariah</div>
+          </div>
+        </div>
+        <svg class="svg-illustration" viewBox="0 0 400 140" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#d1fae5;stop-opacity:1" />
+              <stop offset="100%" style="stop-color:#e0f2fe;stop-opacity:1" />
+            </linearGradient>
+          </defs>
+          <rect x="10" y="10" width="120" height="55" rx="15" fill="url(#grad2)" stroke="#059669" stroke-width="2"/>
+          <text x="70" y="35" text-anchor="middle" font-size="13" fill="#065f46" font-weight="700">Bank</text>
+          <text x="70" y="55" text-anchor="middle" font-size="13" fill="#065f46" font-weight="700">Syariah</text>
+          <rect x="145" y="10" width="120" height="55" rx="15" fill="url(#grad2)" stroke="#059669" stroke-width="2"/>
+          <text x="205" y="35" text-anchor="middle" font-size="13" fill="#065f46" font-weight="700">Koperasi</text>
+          <text x="205" y="55" text-anchor="middle" font-size="13" fill="#065f46" font-weight="700">Syariah</text>
+          <rect x="280" y="10" width="110" height="55" rx="15" fill="url(#grad2)" stroke="#059669" stroke-width="2"/>
+          <text x="335" y="35" text-anchor="middle" font-size="13" fill="#065f46" font-weight="700">Investasi</text>
+          <text x="335" y="55" text-anchor="middle" font-size="13" fill="#065f46" font-weight="700">Halal</text>
+          <rect x="80" y="80" width="240" height="40" rx="20" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+          <text x="200" y="105" text-anchor="middle" font-size="14" fill="#92400e" font-weight="700">💰 Harta Berkah & Halal 💰</text>
+        </svg>
+      `
+    };
+
+    // Data materi lengkap
+    const materi = {
+      pengertian: {
+        judul: "📖 Pengertian Riba dalam Islam",
+        ikon: "fa-book-open",
+        ilustrasi: svgIlustrasi.pengertian,
+        isi: `
+          <p><strong>Riba</strong> berasal dari bahasa Arab yang secara harfiah berarti <em>ziyadah</em> (tambahan) dan <em>namaa'</em> (berkembang). Dalam terminologi syariat Islam, riba didefinisikan sebagai tambahan yang disyaratkan dalam transaksi pinjaman atau pertukaran barang-barang tertentu tanpa adanya kompensasi yang dibenarkan secara syariah.</p>
+
+          <p>Para ulama fikih mendefinisikan riba sebagai: <em>"Tambahan atas harta pokok yang dipersyaratkan dalam akad pinjaman, baik tambahan itu sedikit maupun banyak."</em> Definisi ini mencakup semua bentuk bunga (interest) yang berlaku dalam sistem keuangan konvensional modern.</p>
+
+          <div class="quran-box">
+            "وَأَحَلَّ اللَّهُ الْبَيْعَ وَحَرَّمَ الرِّبَا"<br>
+            <small>"Padahal Allah telah menghalalkan jual beli dan mengharamkan riba." (QS. Al-Baqarah: 275)</small>
+          </div>
+
+          <p><strong>Mengapa Riba Diharamkan?</strong></p>
+          <ul>
+            <li><strong>Mengandung unsur kezaliman:</strong> Pihak yang meminjamkan mengambil keuntungan tanpa menanggung risiko apapun, sementara peminjam menanggung seluruh beban.</li>
+            <li><strong>Eksploitasi kebutuhan:</strong> Riba memanfaatkan kondisi orang yang sedang terdesak kebutuhan untuk meraup keuntungan berlipat.</li>
+            <li><strong>Memutus semangat tolong-menolong:</strong> Islam mendorong umatnya untuk saling membantu dengan pinjaman kebajikan (qardhul hasan), bukan mencari keuntungan dari kesulitan saudaranya.</li>
+            <li><strong>Merusak tatanan ekonomi:</strong> Sistem ribawi menciptakan ketimpangan dan krisis ekonomi yang merugikan masyarakat luas.</li>
+          </ul>
+
+          <div class="highlight-box">
+            <strong>📌 Sejarah Riba pada Masa Jahiliyah</strong><br>
+            Pada masa jahiliyah, praktik riba sangat merajalela di kalangan bangsa Arab. Bentuknya adalah: ketika seseorang berutang dan jatuh tempo, pemberi utang berkata, <em>"Bayar sekarang atau tambah bunganya (ditangguhkan dengan jumlah yang lebih besar)."</em> Jika tidak mampu membayar, utang dilipatgandakan berkali-kali hingga akhirnya peminjam kehilangan seluruh harta bendanya, bahkan keluarganya dijadikan budak. Praktik inilah yang kemudian dihapuskan oleh Islam secara bertahap hingga akhirnya diharamkan secara total.
+          </div>
+
+          <p><strong>Dalil-Dalil Larangan Riba:</strong></p>
+          <ol>
+            <li><strong>QS. Al-Baqarah: 278-279</strong> – "Hai orang-orang yang beriman, bertakwalah kepada Allah dan tinggalkan sisa riba (yang belum dipungut) jika kamu orang-orang yang beriman. Maka jika kamu tidak mengerjakan (meninggalkan sisa riba), maka ketahuilah bahwa Allah dan Rasul-Nya akan memerangimu..."</li>
+            <li><strong>QS. Ali Imran: 130</strong> – "Hai orang-orang yang beriman, janganlah kamu memakan riba dengan berlipat ganda dan bertakwalah kamu kepada Allah supaya kamu mendapat keberuntungan."</li>
+            <li><strong>QS. An-Nisa: 161</strong> – "Dan disebabkan mereka memakan riba, padahal sesungguhnya mereka telah dilarang daripadanya..."</li>
+            <li><strong>Hadis Riwayat Muslim:</strong> Rasulullah ﷺ bersabda, <em>"Satu dirham riba yang dimakan oleh seseorang dalam keadaan mengetahui (bahwa itu riba), lebih besar dosanya daripada berzina tiga puluh enam kali."</em></li>
+            <li><strong>Hadis Riwayat Bukhari & Muslim:</strong> Rasulullah ﷺ melaknat pemakan riba, pemberi riba, pencatat transaksi riba, dan dua orang saksinya. Beliau bersabda, <em>"Mereka semua sama (dosanya)."</em></li>
+          </ol>
+
+          <p>Dari dalil-dalil di atas, jelaslah bahwa riba bukan sekadar dosa kecil, melainkan termasuk dosa besar yang ancamannya sangat berat. Allah SWT bahkan menyatakan perang terhadap pelaku riba, suatu pernyataan yang tidak diberikan kepada dosa-dosa besar lainnya.</p>
+        `
+      },
+      jenis: {
+        judul: "📋 Jenis-Jenis Riba dan Contohnya",
+        ikon: "fa-layer-group",
+        ilustrasi: svgIlustrasi.jenis,
+        isi: `
+          <p>Para ulama membagi riba menjadi beberapa jenis berdasarkan bentuk dan penyebabnya. Memahami jenis-jenis ini penting agar kita dapat mengenali dan menghindarinya dalam kehidupan sehari-hari.</p>
+
+          <p><strong>1. Riba Fadhl (Riba Kelebihan)</strong></p>
+          <p>Riba Fadhl adalah riba yang terjadi dalam transaksi jual beli atau pertukaran barang sejenis dengan kadar atau ukuran yang berbeda, baik secara tunai maupun tidak tunai. Contohnya:</p>
+          <ul>
+            <li>Menukar emas 10 gram dengan emas 12 gram secara langsung.</li>
+            <li>Menukar beras kualitas A 1 kg dengan beras kualitas B 1,5 kg.</li>
+            <li>Menukar kurma basah 2 kg dengan kurma kering 3 kg.</li>
+          </ul>
+          <p>Rasulullah ﷺ bersabda: <em>"Emas dengan emas, perak dengan perak, gandum dengan gandum, kurma dengan kurma, garam dengan garam, harus sama beratnya dan tunai. Barangsiapa menambah atau meminta tambahan, maka ia telah melakukan riba."</em> (HR. Muslim)</p>
+
+          <p><strong>2. Riba Nasi'ah (Riba Penundaan)</strong></p>
+          <p>Riba Nasi'ah adalah riba yang paling umum terjadi dan merupakan jenis riba yang dipraktikkan pada masa jahiliyah. Riba ini terjadi karena adanya tambahan yang disyaratkan sebagai imbalan atas penundaan pembayaran utang. Contohnya:</p>
+          <ul>
+            <li>Seseorang meminjam uang Rp10 juta dengan syarat mengembalikan Rp12 juta dalam waktu 1 tahun.</li>
+            <li>Kartu kredit yang membebankan bunga jika pembayaran ditunda melewati tanggal jatuh tempo.</li>
+            <li>Pinjaman online (pinjol) yang menetapkan bunga harian atau bulanan.</li>
+            <li>Kredit kendaraan atau rumah dengan sistem bunga konvensional.</li>
+          </ul>
+
+          <p><strong>3. Riba Qardh (Riba Pinjaman)</strong></p>
+          <p>Riba Qardh adalah kelebihan yang disyaratkan oleh pemberi pinjaman kepada peminjam di awal akad. Berbeda dengan Riba Nasi'ah yang terkait waktu, Riba Qardh lebih kepada syarat kelebihan yang melekat pada akad pinjaman itu sendiri. Contohnya:</p>
+          <ul>
+            <li>"Saya pinjamkan Rp5 juta, tapi nanti tolong dikembalikan Rp5,5 juta ya."</li>
+            <li>Seorang rentenir meminjamkan uang dengan syarat pengembalian lebih besar tanpa melihat jangka waktu.</li>
+          </ul>
+
+          <p><strong>4. Riba Yad (Riba Tangan/Ketidakjelasan Serah Terima)</strong></p>
+          <p>Riba Yad terjadi ketika transaksi jual beli barang ribawi (emas, perak, bahan makanan pokok) tidak dilakukan secara tunai di tempat (serah terima langsung), meskipun jumlahnya sama. Contohnya:</p>
+          <ul>
+            <li>Membeli emas secara online dan barang diserahkan keesokan harinya, padahal harga sudah disepakati hari ini.</li>
+            <li>Menukar beras dengan beras namun salah satu pihak belum menyerahkan barangnya di tempat transaksi.</li>
+          </ul>
+
+          <div class="highlight-box">
+            <strong>📌 Contoh Riba dalam Kehidupan Sehari-hari:</strong>
+            <ul>
+              <li>Menyimpan uang di bank konvensional dan menerima bunga tabungan.</li>
+              <li>Menggunakan kartu kredit dan membayar bunga atas sisa tagihan.</li>
+              <li>Mengambil KPR (Kredit Pemilikan Rumah) dengan sistem bunga tetap atau mengambang.</li>
+              <li>Meminjam uang di koperasi konvensional dengan bunga pinjaman.</li>
+              <li>Membeli motor secara kredit dengan harga lebih tinggi karena faktor waktu.</li>
+              <li>Paylater di e-commerce yang mengenakan biaya keterlambatan berbentuk persentase.</li>
+            </ul>
+          </div>
+
+          <p><strong>Perbedaan Jual Beli Halal dan Riba:</strong></p>
+          <p>Jual beli halal melibatkan pertukaran barang atau jasa dengan nilai yang wajar, ada unsur kerelaan, dan tidak ada eksploitasi. Penjual menanggung risiko barang, memberikan manfaat nyata, dan keuntungan diperoleh dari selisih harga yang adil. Sementara riba adalah keuntungan yang diperoleh tanpa adanya pertukaran riil, hanya dari perputaran uang semata. Dalam jual beli, kedua belah pihak sama-sama mendapat manfaat. Dalam riba, satu pihak diuntungkan dan pihak lain dirugikan.</p>
+        `
+      },
+      bahaya: {
+        judul: "⚠️ Bahaya dan Dampak Riba",
+        ikon: "fa-skull-crosswalk",
+        ilustrasi: svgIlustrasi.bahaya,
+        isi: `
+          <p>Riba bukan sekadar masalah keuangan, melainkan memiliki dampak yang sangat luas dan merusak, baik secara spiritual, psikologis, sosial, maupun ekonomi. Berikut penjelasan lengkapnya:</p>
+
+          <p><strong>A. Bahaya Riba bagi Individu:</strong></p>
+          <ul>
+            <li><strong>Kehilangan keberkahan harta:</strong> Harta yang diperoleh dari riba mungkin terlihat banyak, tetapi tidak membawa ketenangan dan mudah habis tanpa manfaat. Rasulullah ﷺ bersabda: <em>"Riba itu membuat harta menjadi sedikit."</em> (HR. Ahmad)</li>
+            <li><strong>Dosa besar dan ancaman neraka:</strong> Pelaku riba diancam dengan azab yang pedih di akhirat. Dalam hadis Isra' Mi'raj, Rasulullah ﷺ melihat orang-orang yang perutnya besar seperti rumah, di dalamnya penuh ular yang terlihat dari luar. Malaikat berkata: <em>"Mereka adalah pemakan riba."</em></li>
+            <li><strong>Hilangnya ketenangan jiwa:</strong> Orang yang terlibat riba sering diliputi kecemasan, ketakutan akan utang, dan tidak pernah merasa cukup.</li>
+            <li><strong>Terjerat lingkaran utang:</strong> Bunga berbunga membuat utang semakin membengkak, menjerat peminjam dalam kondisi yang semakin sulit.</li>
+            <li><strong>Doa tidak dikabulkan:</strong> Rasulullah ﷺ menyebutkan bahwa orang yang memakan makanan haram (termasuk riba), doanya sulit dikabulkan oleh Allah SWT.</li>
+          </ul>
+
+          <div class="warning-box">
+            <strong>⚡ Peringatan Keras:</strong> Allah SWT berfirman dalam QS. Al-Baqarah: 279: <em>"Maka jika kamu tidak mengerjakan (meninggalkan sisa riba), maka ketahuilah bahwa Allah dan Rasul-Nya akan memerangimu."</em> Tidak ada dosa lain dalam Al-Qur'an yang ancamannya berupa deklarasi perang dari Allah SWT selain riba.
+          </div>
+
+          <p><strong>B. Bahaya Riba bagi Keluarga:</strong></p>
+          <ul>
+            <li><strong>Konflik rumah tangga:</strong> Tekanan ekonomi akibat utang berbunga sering memicu pertengkaran antara suami istri, bahkan berujung pada perceraian.</li>
+            <li><strong>Anak-anak menjadi korban:</strong> Keluarga yang terlilit utang riba sering mengorbankan pendidikan dan kebutuhan anak-anaknya.</li>
+            <li><strong>Hilangnya rasa syukur:</strong> Berapapun penghasilan yang diperoleh, jika digunakan untuk membayar bunga, tidak akan pernah terasa cukup.</li>
+            <li><strong>Warisan yang haram:</strong> Harta riba yang diwariskan kepada anak cucu akan menjadi harta haram yang membawa keburukan bagi keturunan.</li>
+          </ul>
+
+          <p><strong>C. Dampak Ekonomi dan Sosial Akibat Riba:</strong></p>
+          <ul>
+            <li><strong>Kesenjangan sosial:</strong> Sistem ribawi membuat yang kaya semakin kaya dan yang miskin semakin miskin. Uang berputar di kalangan pemilik modal besar saja.</li>
+            <li><strong>Krisis ekonomi:</strong> Banyak krisis keuangan global, termasuk krisis moneter 1998 di Indonesia dan krisis keuangan 2008 di Amerika, dipicu oleh sistem ribawi yang tidak stabil.</li>
+            <li><strong>Inflasi dan ketidakstabilan harga:</strong> Bunga bank menjadi beban bagi produsen yang akhirnya membebankan kepada konsumen dalam bentuk harga yang lebih tinggi.</li>
+            <li><strong>Pengangguran:</strong> Perusahaan yang terbebani bunga tinggi cenderung melakukan efisiensi dengan PHK massal.</li>
+            <li><strong>Rusaknya semangat gotong royong:</strong> Masyarakat menjadi individualis dan materialistis, kehilangan semangat tolong-menolong.</li>
+          </ul>
+
+          <div class="highlight-box">
+            <strong>📌 Kisah Nyata Akibat Riba:</strong><br>
+            Seorang pengusaha kecil di Jawa Tengah meminjam uang dari rentenir sebesar Rp50 juta untuk modal usaha. Karena bunga 20% per bulan, dalam setahun utangnya membengkak menjadi lebih dari Rp200 juta. Ia kehilangan rumah, kendaraan, dan akhirnya usahanya bangkrut total. Keluarganya tercerai-berai karena tekanan ekonomi. Setelah mendapatkan edukasi tentang ekonomi syariah, ia beralih ke koperasi syariah, memulai kembali usaha kecilnya dengan akad mudharabah, dan perlahan-lahan hidupnya pulih. Kini ia aktif mengedukasi masyarakat tentang bahaya riba.
+          </div>
+
+          <p><strong>Studi Kasus Lain:</strong> Krisis ekonomi Indonesia tahun 1997-1998 dipicu oleh utang luar negeri berbunga yang tidak terkendali. Nilai tukar rupiah anjlok, ratusan bank ditutup, dan jutaan orang kehilangan pekerjaan. Para ekonom menyimpulkan bahwa sistem ribawi adalah salah satu akar masalah krisis tersebut.</p>
+        `
+      },
+      hindari: {
+        judul: "🛡️ Cara Menghindari Riba & Alternatif Syariah",
+        ikon: "fa-shield-virus",
+        ilustrasi: svgIlustrasi.hindari,
+        isi: `
+          <p>Menghindari riba di era modern mungkin terasa sulit karena sistem keuangan global didominasi oleh praktik ribawi. Namun, dengan niat yang kuat, ilmu yang cukup, dan langkah-langkah strategis, setiap Muslim dapat menjalani kehidupan finansial yang halal dan berkah.</p>
+
+          <p><strong>A. Langkah Praktis Menghindari Riba:</strong></p>
+          <ol>
+            <li><strong>Beralih ke bank syariah:</strong> Gunakan tabungan, deposito, dan pembiayaan dari bank syariah yang menggunakan akad-akad halal seperti mudharabah (bagi hasil), murabahah (jual beli), dan ijarah (sewa).</li>
+            <li><strong>Hindari kartu kredit konvensional:</strong> Jika terpaksa, gunakan kartu debit syariah atau kartu kredit syariah yang tidak mengenakan bunga.</li>
+            <li><strong>Pilih KPR syariah:</strong> Untuk pembelian rumah, gunakan skema murabahah (bank membeli rumah lalu menjualnya kepada nasabah dengan margin keuntungan yang disepakati) atau ijarah muntahiya bit tamlik (sewa beli).</li>
+            <li><strong>Bangun dana darurat:</strong> Memiliki tabungan darurat minimal 3-6 bulan pengeluaran dapat menghindarkan kita dari kebutuhan meminjam uang saat kondisi mendesak.</li>
+            <li><strong>Hindari pinjaman online (pinjol) ilegal:</strong> Mayoritas pinjol membebankan bunga sangat tinggi dan praktik penagihannya sering melanggar etika.</li>
+            <li><strong>Gunakan koperasi syariah atau BMT:</strong> Baitul Maal wat Tamwil menyediakan pembiayaan mikro dengan prinsip syariah untuk usaha kecil.</li>
+          </ol>
+
+          <p><strong>B. Alternatif Transaksi dan Keuangan Syariah:</strong></p>
+          <ul>
+            <li><strong>Mudharabah:</strong> Akad kerjasama antara pemilik modal (shahibul maal) dan pengelola usaha (mudharib). Keuntungan dibagi sesuai nisbah yang disepakati, kerugian ditanggung pemilik modal selama bukan kelalaian pengelola.</li>
+            <li><strong>Musyarakah:</strong> Akad kerjasama antara dua pihak atau lebih untuk suatu usaha, masing-masing memberikan modal, keuntungan dan kerugian dibagi sesuai porsi modal.</li>
+            <li><strong>Murabahah:</strong> Akad jual beli dengan margin keuntungan yang disepakati. Cocok untuk pembelian barang seperti rumah, kendaraan, atau peralatan.</li>
+            <li><strong>Ijarah:</strong> Akad sewa-menyewa barang atau jasa dengan imbalan yang disepakati.</li>
+            <li><strong>Qardhul Hasan:</strong> Pinjaman kebajikan tanpa bunga, murni untuk tolong-menolong. Peminjam hanya mengembalikan pokok pinjaman.</li>
+            <li><strong>Wakalah:</strong> Akad perwakilan, di mana seseorang mewakilkan urusannya kepada pihak lain.</li>
+            <li><strong>Salam dan Istishna:</strong> Akad pemesanan barang dengan spesifikasi tertentu untuk kebutuhan masa depan.</li>
+          </ul>
+
+          <p><strong>C. Tips Mengelola Keuangan Secara Halal:</strong></p>
+          <ul>
+            <li><strong>Catat pemasukan dan pengeluaran:</strong> Gunakan aplikasi keuangan atau buku catatan sederhana untuk melacak arus uang.</li>
+            <li><strong>Buat anggaran bulanan:</strong> Alokasikan penghasilan untuk kebutuhan pokok, tabungan, investasi halal, sedekah, dan hiburan secukupnya.</li>
+            <li><strong>Sisihkan sedekah dan zakat:</strong> Sedekah membersihkan harta dan membuka pintu rezeki. Zakat adalah kewajiban yang harus ditunaikan.</li>
+            <li><strong>Investasi halal:</strong> Pilih instrumen investasi syariah seperti reksadana syariah, saham syariah di Indeks Saham Syariah Indonesia (ISSI), sukuk (obligasi syariah), atau emas.</li>
+            <li><strong>Hidup sederhana:</strong> Jangan memaksakan gaya hidup di luar kemampuan. Rasulullah ﷺ mengajarkan hidup qanaah (merasa cukup).</li>
+            <li><strong>Hindari utang konsumtif:</strong> Berutanglah hanya untuk kebutuhan produktif yang mendesak, itupun dengan skema syariah.</li>
+          </ul>
+
+          <p><strong>D. Keutamaan Mencari Rezeki yang Halal:</strong></p>
+          <ul>
+            <li><strong>Doa dikabulkan:</strong> Orang yang memakan rezeki halal, doanya lebih mudah dikabulkan Allah SWT.</li>
+            <li><strong>Hati menjadi tenang:</strong> Rezeki halal membawa ketenangan batin, tidak ada rasa was-was atau takut.</li>
+            <li><strong>Keberkahan dalam keluarga:</strong> Harta halal yang dinafkahkan kepada keluarga akan membawa keberkahan dan keharmonisan.</li>
+            <li><strong>Amal ibadah diterima:</strong> Ibadah yang dilakukan dengan harta halal lebih berpeluang diterima oleh Allah SWT.</li>
+          </ul>
+
+          <div class="motivation-box">
+            <strong>🌟 Pesan Motivasi Islami tentang Keberkahan Harta:</strong><br><br>
+            <em>"Kekayaan sejati bukanlah terletak pada banyaknya harta, tetapi pada keberkahan yang menyertainya. Harta yang sedikit namun halal dan berkah, lebih baik daripada harta melimpah yang diperoleh dari jalan haram. Keberkahan membuat harta yang sedikit terasa cukup, membawa ketenangan jiwa, dan menjadi sebab turunnya rahmat Allah dalam kehidupan kita."</em><br><br>
+            Rasulullah ﷺ bersabda: <em>"Tidaklah seorang hamba memakan rezeki yang lebih baik daripada hasil usahanya sendiri. Dan sesungguhnya Nabi Daud AS makan dari hasil usahanya sendiri."</em> (HR. Bukhari)<br><br>
+            <strong>💎 Mulailah dari sekarang:</strong> Periksa kembali sumber penghasilan kita. Pastikan tidak ada unsur riba di dalamnya. Beralihlah ke sistem keuangan syariah secara bertahap. Ingatlah selalu bahwa setiap rupiah yang kita peroleh akan dimintai pertanggungjawaban di hadapan Allah SWT: dari mana diperolehnya dan untuk apa dibelanjakan. Semoga Allah SWT senantiasa membimbing kita menuju rezeki yang halal, berkah, dan diridhai-Nya. Aamiin ya Rabbal 'alamin. 🤲
+          </div>
+        `
+      }
+    };
+
+    // Fungsi untuk kembali ke halaman splash screen (Assalamu'alaikum)
+    function kembaliKeSplash() {
+      console.log("Kembali ke halaman Assalamu'alaikum");
+      document.getElementById('materialPage').style.display = 'none';
+      document.getElementById('homePage').style.display = 'none';
+      document.getElementById('splashScreen').style.display = 'flex';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Fungsi masuk aplikasi dari splash ke home
+    function masukAplikasi() {
+      console.log("Tombol Mulai Belajar diklik");
+      document.getElementById('splashScreen').style.display = 'none';
+      document.getElementById('homePage').style.display = 'block';
+      document.getElementById('materialPage').style.display = 'none';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Fungsi membuka materi
+    function bukaMateri(kunci) {
+      console.log("Membuka materi:", kunci);
+      document.getElementById('homePage').style.display = 'none';
+      document.getElementById('materialPage').style.display = 'block';
+      const data = materi[kunci];
+      if (data) {
+        document.getElementById('materialContent').innerHTML = `
+          ${data.ilustrasi}
+          <h2 class="material-title"><i class="fas ${data.ikon}" style="color:#059669;"></i> ${data.judul}</h2>
+          <div class="material-body">${data.isi}</div>
+        `;
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Fungsi kembali ke menu utama dari materi
+    function kembaliKeHome() {
+      console.log("Kembali ke menu utama");
+      document.getElementById('materialPage').style.display = 'none';
+      document.getElementById('homePage').style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Inisialisasi awal
+    window.onload = function() {
+      console.log("Aplikasi Edukasi Anti Riba dimuat");
+      document.getElementById('splashScreen').style.display = 'flex';
+      document.getElementById('homePage').style.display = 'none';
+      document.getElementById('materialPage').style.display = 'none';
+    };
+  </script>
+</body>
+</html>
